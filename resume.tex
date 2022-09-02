@@ -1,12 +1,46 @@
 \documentclass[11pt]{article}
-\usepackage[light]{merriweather}
+\usepackage{merriweather}
+\usepackage{fontspec}
+\setmainfont{MonoLisa-Light}[
+    Path           = fonts/MonoLisa/,
+    Extension      = .otf,
+    BoldFont       = MonoLisa-Bold,
+    ItalicFont     = MonoLisa-LightItalic,
+    BoldItalicFont = MonoLisa-BoldItalic,
+    Ligatures      = Common,
+    Numbers        = SlashedZero,
+    RawFeature     = {+calt,+zero,+ss02,+ss03},
+    LetterSpace    = -10
+]
+% had to do this because i have so many texttt things everywhere
+\setmonofont{MonoLisa-Light}[
+    Path           = fonts/MonoLisa/,
+    Extension      = .otf,
+    BoldFont       = MonoLisa-Bold,
+    ItalicFont     = MonoLisa-LightItalic,
+    BoldItalicFont = MonoLisa-BoldItalic,
+    Ligatures      = Common,
+    Numbers        = SlashedZero,
+    RawFeature     = {+calt,+zero,+ss02,+ss03},
+    LetterSpace    = -7.5
+]
+\newfontface\mlscript{MonoLisa-BoldItalic}[
+    Path = fonts/MonoLisa/,
+    Extension = .otf,
+    RawFeature = +calt;-liga;+zero;+ss02,
+    LetterSpace = -12,
+    BoldItalicFont = MonoLisa-BoldItalic,
+    BoldFont = MonoLisa-BoldItalic,
+    ItalicFont = MonoLisa-BoldItalic
+]
 \usepackage[left=.75cm, right=.75cm, top=.35cm, bottom=0cm]{geometry}
 \usepackage[hidelinks]{hyperref}
-\usepackage[fixed]{fontawesome5}
+\usepackage{fontawesome5}
+\usepackage{lstfiracode}
 \usepackage{tabularx, ragged2e, calc, booktabs, sectsty, anyfontsize, enumitem}
 
 \pagenumbering{gobble}
-\sectionfont{\fontsize{17}{15}\bfseries}
+\sectionfont{\fontsize{17}{15}\mlscript}
 \parindent=0pt
 
 \title{Resume}
@@ -19,24 +53,33 @@
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
 % generate work experience
-\newcommand\workexp[5]{
-    \hspace*{10pt}
-    \begin{minipage}[t]{0.225\textwidth}
+\newcommand\workexp[5]{%
+    \hspace*{5pt}\begin{minipage}[t]{0.21\textwidth}
             \raggedleft
-                \textbf{\fontsize{14}{10}\selectfont #1}\\ 
+                \textbf{\fontsize{13}{10}\mlscript #1}\\ 
                 #2\\
                 \small\texttt{#3}\textendash \texttt{#4}
-    \end{minipage}\hspace*{10pt}\vline\hspace*{5pt}
-    \begin{minipage}[t]{0.7\textwidth}
-        \raggedright\fontsize{10}{14}\selectfont #5
+    \end{minipage}\hspace*{5pt}\vline\hspace*{5pt}%
+    \begin{minipage}[t]{0.725\textwidth}
+        \raggedright\fontsize{10}{12}\selectfont #5
     \end{minipage}
+}
+
+\newlength{\letterheight}
+\newlength{\iconheight}
+\newlength{\heightdif}
+\newcommand\infolink[3]{%
+    \settototalheight{\iconheight}{#1}
+    \settototalheight{\letterheight}{#2}
+    \setlength{\heightdif}{\letterheight-\iconheight}
+    \fontsize{11pt}{10pt}\raisebox{-0.25\heightdif}{#1\hspace*{1pt}}\ttfamily\href{#2}{#3}
 }
 
 
 \begin{document}
 
-\begin{tabular}[t]{L{0.245\textwidth} | L{0.7\textwidth}}
-    \vspace*{-1pt}\fontsize{45}{35}\bfseries Luke Belinc & \vspace*{-4pt}\fontsize{12}{14}\normalfont As a software engineer and
+\begin{tabular}[t]{L{0.26\textwidth} | L{0.65\textwidth}}
+    \vspace*{-1pt}\fontsize{45}{45}\mlscript Luke Belinc & \vspace*{-4pt}\fontsize{12}{11}\normalfont As a software engineer and
     full stack web developer, I am experienced in contributing to team success through the art of software development and dedication
     to my craft. Rooted in a passion for learning, I have built a strong skill set which includes 5\texttt{+} years' experience
     in applying object-oriented and functional programming techniques.                                                           \\
@@ -44,11 +87,11 @@
 
 \bgroup
 \begin{center}
-    \begin{tabularx}{0.95\textwidth}{X X X X}
-        \fontsize{13}{12}\ttfamily\faPhoneSquare \href{tel:17349695442}{\texttt{(734)969-5442}}                            &
-        \fontsize{13}{12}\ttfamily\faLinkedinIn  \href{https://www.linkedin.com/in/luke-belinc/}{\texttt{/in/luke-belinc}} &
-        \fontsize{13}{12}\ttfamily\faGithub      \href{https://github.com/luke-belinc}{\texttt{/luke-belinc}}              &
-        \fontsize{13}{12}\ttfamily\faEnvelope    \href{mailto:belinc@tuta.io}{\texttt{belinc@tuta.io}}                       \\
+    \hspace*{10pt}\begin{tabularx}{0.95\textwidth}{X X X X}
+        \infolink{\faPhoneSquare}{tel:7349695442}{(734)969-5442}                            &
+        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/luke-belinc/}{/in/luke-belinc} &
+        \infolink{\faGithub*}{https://github.com/luke-belinc}{/luke-belinc}                  &
+        \infolink{\faAt}{mailto:belinc@tuta.io}{belinc@tuta.io}                              
     \end{tabularx}
 \end{center}
 \egroup
@@ -56,10 +99,10 @@
 \hrule
 \vspace*{-10pt}
 \section*{Experience}
-\vspace*{-10pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{Designed new software tools for the case
-    managers and support teams \\Provided continuous QoL updates to existing software \\Built and deployed single page web
-    applications via AWS EC2 \\Acted as admin of 20\texttt{+} PowerBI reports, their data sources and data gateways \\Provided
-    necessary CLI training to my team \\Implemented Agile style software development}
+\vspace*{-10pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{Designed new and maintined existing interal software tools 
+    \\Automated workflows to create efficiency of scale \\Provided continuous QoL updates to legacy software/systems \\Built and deployed single page web 
+    applications via AWS EC2 \\Provided necessary CLI training to my team \\Coordinated multiple projects from initial planning through deployment 
+    \\Implemented Agile style software development \\Doubled annual 2022 release targets by August 2022}
 \vspace*{10pt}\\
 \workexp{Systems Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{Built software extensions for the GEOS-Chem and WRF-Chem
     modeling systems \\Wrote scripts to interpret and generate maps from atmospheric data models \\Automated software execution
@@ -72,7 +115,7 @@
     \begin{description}
         \raggedright
         \item[Languages] C, C\texttt{++}, C\texttt{\#}, Java, Python, JavaScript, TypeScript, SQL, HTML, CSS, Go, Bash, Haskell,
-            CommonLisp, FORTRAN, Ruby 
+            CommonLisp, FORTRAN, Ruby
         \item[Frameworks\texttt{/}Libraries] Angular, React, Express, Jasmine, POSIX, pandas, Tkinter, NumPy, NLTK,
             Qt, .NET, ASP.NET, jQuery, Rails
         \item[Tools] Unix shells \texttt{(}zsh, sh, Bash\texttt{)}, GNU coreutils, Vim, Slurm, cron, PowerShell, Git, Node.js,
@@ -83,7 +126,7 @@
 \end{minipage}
 
 \vspace*{-10pt}
-\section*{Projects\texttt{/}Hackathons}
+\section*{Projects/Hackathons}
 \vspace*{-10pt}\hspace*{10pt}\begin{minipage}{0.93\textwidth}
     \begin{description}
         \raggedright
@@ -111,8 +154,8 @@
     \vspace*{-6.5pt}\begin{tabular*}{\textwidth}{L{0.45\textwidth} L{0.45\textwidth}}
         \hspace*{5pt}\textbf{Matthew Crawford} & \textbf{Matthew Heinrich} \\
         \hspace*{5pt}Director, Product Support & Engineer, DevOps \\
-        \hspace*{5pt}\texttt{(248)595-5635} & \faLinkedinIn \href{https://www.linkedin.com/in/matthew-heinrich-11b31216a/}{LinkedIn}\\
-        \hspace*{5pt}\faLinkedinIn \href{https://www.linkedin.com/in/th3mattcrawford/}{LinkedIn} &
+        \hspace*{5pt}\texttt{(248)595-5635} & \texttt{(646)385-5524}\\
+        \hspace*{5pt}\faLinkedinIn \href{https://www.linkedin.com/in/th3mattcrawford/}{LinkedIn} & \faLinkedinIn \href{https://www.linkedin.com/in/matthew-heinrich-11b31216a/}{LinkedIn}
     \end{tabular*}
 \end{minipage}
 
