@@ -1,5 +1,4 @@
 \documentclass[11pt]{article}
-
 \usepackage{fontspec}
 \setmonofont{MonoLisa-Light}[
     Path           = fonts/MonoLisa/,
@@ -18,10 +17,16 @@
 \usepackage{fontawesome5}
 \usepackage{tabularx, ragged2e, calc, booktabs, sectsty, anyfontsize, enumitem}
 
+\newenvironment{itemize*}%
+  {\begin{itemize}[leftmargin=*,label=\faChevronRight]%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \setlength{\parsep}{0pt}}%
+  {\end{itemize}}
+
 \pagenumbering{gobble}
 \sectionfont{\fontsize{17}{15}\bfseries}
 \parindent=0pt
-
 \title{Resume}
 \author{Luke Belinc}
 \date{August 31, 2022}
@@ -39,9 +44,9 @@
                 \textbf{\fontsize{14}{10}\selectfont #1}\\ 
                 #2\\
                 \small\texttt{#3}\textendash \texttt{#4}
-    \end{minipage}\hspace*{10pt}\vline\hspace*{5pt}
+    \end{minipage}\hspace*{5pt}%
     \begin{minipage}[t]{0.7\textwidth}
-        \raggedright\fontsize{10}{14}\selectfont #5
+        \fontsize{10}{10}\selectfont#5
     \end{minipage}
 }
 
@@ -61,7 +66,7 @@
     \vspace*{-1pt}\fontsize{45}{35}\bfseries Luke Belinc & \vspace*{-4pt}\fontsize{12}{14}\normalfont As a software engineer and
     full stack web developer, I am experienced in contributing to team success through the art of software development and dedication
     to my craft. Rooted in a passion for learning, I have built a strong skill set which includes 5\texttt{+} years' experience
-    in applying object-oriented and functional programming techniques.                                                           \\
+    in applying Object-Oriented and Functional programming techniques.                                                           \\
 \end{tabular}
 
 \bgroup
@@ -74,21 +79,36 @@
     \end{tabularx}
 \end{center}
 \egroup
-
+\vspace*{-5pt}
 \hrule
 \vspace*{-10pt}
 \section*{Experience}
-\vspace*{-10pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{Designed new and maintined existing interal software tools
-\\Automated workflows to create efficiency of scale \\Provided continuous QoL updates to legacy software/systems \\Built and deployed single page web
-applications via AWS EC2 \\Provided necessary CLI training to my team \\Coordinated multiple projects from initial planning through deployment
-\\Implemented Agile style software development \\Doubled annual 2022 release targets by August 2022}
+\vspace*{-10pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{%
+    \begin{itemize*}
+        \item Built and regularly maintained internal software tools for the Experience Management Product Support organization
+        \item Automated workflows to create efficiency of scale while also reducing manual errors
+        \item Delivered continuous QoL updates to legacy software and systems
+        \item Built and deployed single page web applications via AWS EC2
+        \item Tasked with providing all necessary CLI training to colleagues
+        \item Coordinated multiple projects from initial planning through deployment
+        \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
+        \item Utilized Agile software development approach with each project
+        \item Doubled 2022 annual release target goal by August
+    \end{itemize*}%
+}
 \vspace*{10pt}\\
-\workexp{Systems Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{Built software extensions for the GEOS-Chem and WRF-Chem
-    modeling systems \\Wrote scripts to interpret and generate maps from atmospheric data models \\Automated software execution
-    using Bash, cron, and Slurm via WSU's HPC \\Implemented GNU Make to automate software builds \\Provided CLI training to 3
-    team members}
+\workexp{Systems Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{%
+    \begin{itemize*}
+        \item Built software extensions for the GEOS-Chem and WRF-Chem modeling systems
+        \item Drew up comprehensive bug reports to identify pain points and provided solutions
+        \item Authored scripts to interpret and generate maps from atmospheric data models
+        \item Automated software execution and data collection using Bash, cron, and Slurm via WSU's HPC
+        \item Implemented GNU Make to automate software builds
+        \item Held regular CLI training sessions with research students
+    \end{itemize*}%
+}
 
-\vspace*{-10pt}
+\vspace*{-15pt}
 \section*{Skill Set}
 \vspace*{-10pt}\hspace*{10pt}\begin{minipage}{0.935\textwidth}
     \begin{description}
