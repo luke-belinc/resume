@@ -12,7 +12,7 @@
 ]
 
 \usepackage[light]{merriweather}
-\usepackage[left=.75cm, right=.75cm, top=.35cm, bottom=0cm]{geometry}
+\usepackage[left=.75cm, right=.55cm, top=.35cm, bottom=0cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
 \usepackage{tabularx, ragged2e, calc, booktabs, sectsty, anyfontsize, enumitem}
@@ -39,7 +39,7 @@
 % generate work experience
 \newcommand\workexp[5]{
     \hspace*{10pt}
-    \begin{minipage}[t]{0.225\textwidth}
+    \begin{minipage}[t]{0.2225\textwidth}
             \raggedleft
                 \textbf{\fontsize{14}{10}\selectfont #1}\\ 
                 #2\\
@@ -63,12 +63,11 @@
 
 \begin{document}
 
-\begin{tabular}[t]{L{0.245\textwidth} | L{0.7\textwidth}}
-    \vspace*{-1pt}\fontsize{45}{35}\bfseries Luke Belinc & \vspace*{-4pt}\fontsize{12}{14}\normalfont As a Software Engineer and
-    Full Stack Web Developer, I am experienced in contributing to team success through the art of software development and dedication
-    to my craft. Rooted in a passion for learning, I have built a strong skill set which includes 5\texttt{+} years' experience
-    in applying Object-Oriented and Functional programming techniques.                                                           \\
-\end{tabular}
+\bgroup
+\begin{center}
+    \fontsize{45}{35}\bfseries\scshape Luke Belinc
+\end{center}
+\egroup
 
 \bgroup
 \begin{center}
@@ -76,7 +75,7 @@
         \infolink{\faPhoneSquare}{tel:7349695442}{(734)969-5442}                            &
         \infolink{\faLinkedinIn}{https://www.linkedin.com/in/luke-belinc/}{/in/luke-belinc} &
         \infolink{\faGithub*}{https://github.com/luke-belinc}{/luke-belinc}                 &
-        \infolink{\faAt}{mailto:luke@belinc.dev}{luke@belinc.dev}
+        \infolink{\faAt}{mailto:belinc@tuta.io}{belinc@tuta.io}
     \end{tabular}
 \end{center}
 \egroup
@@ -84,7 +83,7 @@
 \hrule
 \vspace*{-15pt}
 \section*{Experience}
-\vspace*{-15pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{%
+\vspace*{-10pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{%
     \begin{itemize*}
         \item Built and maintained internal software tools for the Experience Management Product Support organization
         \item Automated workflows to create efficiency of scale while also reducing manual errors
@@ -100,46 +99,50 @@
 \vspace*{10pt}\\
 \workexp{Systems Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{%
     \begin{itemize*}
-        \item Built software extensions for the GEOS-Chem and WRF-Chem modeling systems
+        \item Built and bedugged software extensions for the GEOS-Chem and WRF-Chem modeling systems
         \item Drew up comprehensive bug reports to identify pain points and provided solutions
         \item Authored scripts to interpret and generate maps from atmospheric data models
-        \item Automated software execution and data collection using Bash, cron, and Slurm via WSU's HPC nodes (A.K.A. Wayne State Grid)
-        \item Implemented GNU Make to automate software builds
+        \item Leveraged Bash, cron, and Slurm via WSU's HPC nodes (A.K.A. the Wayne State Grid) to automate and test software, 
+              data collection, and data modeling
+        \item Implemented GNU Make to build software and extensions
         \item Held regular CLI training sessions with research students
     \end{itemize*}%
 }
 
-\vspace*{-15pt}
+\vspace*{-10pt}
 \section*{Skill Set}
-\vspace*{-10pt}\hspace*{10pt}\begin{minipage}{0.935\textwidth}
+\vspace*{-8pt}\hspace*{10pt}\begin{minipage}{0.935\textwidth}
     \begin{description}
         \itemsep0em
         \raggedright
-        \item[Languages] C, C\texttt{++}, C\texttt{\#}, Java, Python, JavaScript, TypeScript, SQL, HTML, CSS, Go, Bash, Haskell,
-            CommonLisp, FORTRAN, Ruby 
-        \item[Frameworks\texttt{/}Libraries] Angular, React, Express, Jasmine, POSIX, pandas, Tkinter, NumPy, NLTK,
-            Qt, .NET, ASP.NET, jQuery, Rails
-        \item[Tools] Unix shells \texttt{(}zsh, sh, Bash\texttt{)}, GNU coreutils, Vim, Slurm, cron, PowerShell, Git, Node.js,
-            \LaTeX, AWS \texttt{(}S3, EC2, Lambda\texttt{)}, Database Managament Systems \texttt{(}PostgreSQL, MySQL, Oracle
+        \item[Languages] C, C\texttt{++}, Python, Bash, Haskell, CommonLisp, FORTRAN, Java, C\texttt{\#}, HTML/CSS, TypeScript
+        \item[Frameworks\texttt{/}Libraries] POSIX, glibc, Angular, React, Express, Jasmine, pandas, Tkinter, NumPy, NLTK,
+            Qt, .NET
+        \item[Tools] Unix shells \texttt{(}zsh, sh, Bash\texttt{)}, GNU coreutils, Vim, Slurm, cron, PowerShell, Git, \LaTeX, Node.js,
+            AWS \texttt{(}S3, EC2, Lambda\texttt{)}, Database Managament Systems \texttt{(}PostgreSQL, MySQL, Oracle
             Database\texttt{)}, Jira, Confluence
-        \item[Methodologies] Agile, CI/CD, Behavior- and Test-driven development
+        \item[Methodologies] Agile, CI\texttt{/}CD, Behavior- and Test-driven development
     \end{description}
 \end{minipage}
 
-\vspace*{-15pt}
+\vspace*{-10pt}
 \section*{Projects\texttt{/}Hackathons}
-\vspace*{-10pt}\hspace*{10pt}\begin{minipage}{0.93\textwidth}
+\vspace*{-8pt}\hspace*{10pt}\begin{minipage}{0.93\textwidth}
     \begin{description}
         \itemsep0em
         \raggedright
-        \item[Advent of Code] Various code challanges completed using Haskell, C\texttt{++}, and Python
-        \item[DHack] Designed health monitoring app using AWS Lambda, JavaScript and React Native. Won 2nd place overall and 1st
-            place for the FitBit challenge.
-        \item[MHacks 8] Designed set of dev tools for remote maintainance of GM Console software. Used C, JavaScript, and
-            Wayland to manipulate system and interact with screen remotely.
-        \item[Chinese Character Dictionary] Designed a simple character meaning and stroke order dictionary and thesaurus using
-            Python, PostgreSQL, and Qt
-        \item[Mock Terminal] POSIX shell built in C
+        \item[AirSkyBoat \href{https://github.com/luke-belinc/AirSkyBoat}{\fontsize{9pt}{9pt}\faLink}] Continuous contribution to 
+            development of open source server emulator for Final Fantasy XI.
+        \item[Advent of Code \href{https://github.com/luke-belinc/AOC-2020}{\fontsize{9pt}{9pt}\faLink}] Various code challanges 
+            completed using Haskell, C\texttt{++}, and Python
+        \item[DHack \href{https://github.com/kraudo/keepup}{\fontsize{9pt}{9pt}\faLink}] Designed health monitoring app using AWS 
+            Lambda, JavaScript and React Native. Won 2nd place overall and 1st place for the FitBit challenge.
+        \item[MHacks 8] Designed set of dev tools for remote maintainance of GM Console software. Used C and Bash to leverage Wayland 
+            and manipulate system. Used JavaScript to interact with screen remotely.
+        \item[Chinese Character Dictionary \href{https://github.com/luke-belinc/chinese-char-dict}{\fontsize{9pt}{9pt}\faLink}] 
+            Designed a simple character meaning and stroke order dictionary and thesaurus using Python, PostgreSQL, and Qt
+        \item[Mock Shell \href{https://github.com/luke-belinc/c-fun}{\fontsize{9pt}{9pt}\faLink}] Mock POSIX-like shell built in C. Implemented libraries such as \texttt{stdlib.h}, \texttt{signal.h}, 
+            and \texttt{unistd.h}.
     \end{description}
 \end{minipage}
 
