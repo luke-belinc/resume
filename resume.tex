@@ -1,17 +1,38 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage{fontspec}
+\setmainfont{MonoLisa-Light}[
+    Path           = fonts/MonoLisa/,
+    Extension      = .otf,
+    BoldFont       = MonoLisa-Bold,
+    ItalicFont     = MonoLisa-LightItalic,
+    BoldItalicFont = MonoLisa-BoldItalic,
+    Ligatures      = Common,
+    Numbers        = SlashedZero,
+    RawFeature     = {+calt,+zero,+ss02,+ss03},
+    LetterSpace    = -10
+]
+% had to do this because i have so many texttt things everywhere
 \setmonofont{MonoLisa-Light}[
     Path           = fonts/MonoLisa/,
     Extension      = .otf,
     BoldFont       = MonoLisa-Bold,
     ItalicFont     = MonoLisa-LightItalic,
     BoldItalicFont = MonoLisa-BoldItalic,
+    Ligatures      = Common,
     Numbers        = SlashedZero,
     RawFeature     = {+calt,+zero,+ss02,+ss03},
     LetterSpace    = -7.5
 ]
+\newfontface\mlscript{MonoLisa-BoldItalic}[
+    Path = fonts/MonoLisa/,
+    Extension = .otf,
+    RawFeature = +calt;-liga;+zero;+ss02,
+    LetterSpace = -12,
+    BoldItalicFont = MonoLisa-BoldItalic,
+    BoldFont = MonoLisa-BoldItalic,
+    ItalicFont = MonoLisa-BoldItalic
+]
 
-\usepackage[light]{merriweather}
 \usepackage[left=.75cm, right=.55cm, top=.35cm, bottom=0cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
@@ -25,7 +46,7 @@
   {\end{itemize}}
 
 \pagenumbering{gobble}
-\sectionfont{\fontsize{17}{15}\bfseries}
+\sectionfont{\fontsize{17}{15}\mlscript}
 \parindent=0pt
 \title{Resume}
 \author{Luke Belinc}
@@ -38,14 +59,13 @@
 
 % generate work experience
 \newcommand\workexp[5]{
-    \hspace*{10pt}
-    \begin{minipage}[t]{0.2225\textwidth}
+    \begin{minipage}[t]{0.215\textwidth}
             \raggedleft
-                \textbf{\fontsize{14}{10}\selectfont #1}\\ 
+                \textbf{\fontsize{13}{10}\selectfont #1}\\ 
                 #2\\
                 \small\texttt{#3}\textendash \texttt{#4}
     \end{minipage}\hspace*{5pt}%
-    \begin{minipage}[t]{0.7\textwidth}
+    \begin{minipage}[t]{0.75\textwidth}
         \raggedright
         \fontsize{10}{10}\selectfont#5
     \end{minipage}
@@ -65,7 +85,7 @@
 
 \bgroup
 \begin{center}
-    \fontsize{45}{35}\bfseries\scshape Luke Belinc
+    \fontsize{45}{35}\mlscript Luke Belinc
 \end{center}
 \egroup
 
@@ -83,18 +103,27 @@
 \hrule
 \vspace*{-15pt}
 \section*{Experience}
-\vspace*{-10pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{%
+\vspace*{-10pt}\workexp{Associate Software Engineer}{Bloomerang}{10/2022}{Current}{%
     \begin{itemize*}
-        \item Built and maintained internal software tools for the Experience Management Product Support organization
-        \item Automated workflows to create efficiency of scale while also reducing manual errors
-        \item Delivered continuous QoL updates to legacy software and systems
-        \item Built and deployed single page web applications via AWS EC2
-        \item Tasked with providing all necessary CLI training to colleagues
-        \item Coordinated multiple projects from initial planning through deployment
-        \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
-        \item Utilized Agile software development approach with each project
-        \item Doubled 2022 annual release target goal by August
+        \item Engineering internal solutions for client facing teams in the Professional Services organization
+        \item Automating workflows to resolve manual error and improve customer experience
+        \item Building .NET toolsets to generate reports and manage client data
+        \item Designing web applications to interface with customers for data collection and new customer onboarding
     \end{itemize*}%
+}
+\vspace*{10pt}\\
+\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{%
+\begin{itemize*}
+    \item Built and maintained internal software tools for the Experience Management Product Support organization
+    \item Automated workflows to create efficiency of scale while also reducing manual errors
+    \item Delivered continuous QoL updates to legacy software and systems
+    \item Built and deployed single page web applications via AWS EC2
+    \item Tasked with providing all necessary CLI training to colleagues
+    \item Coordinated multiple projects from initial planning through deployment
+    \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
+    \item Utilized Agile software development approach with each project
+    \item Doubled 2022 annual release target goal by August
+\end{itemize*}%
 }
 \vspace*{10pt}\\
 \workexp{Systems Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{%
@@ -115,7 +144,7 @@
     \begin{description}
         \itemsep0em
         \raggedright
-        \item[Languages] C, C\texttt{++}, Python, Bash, Haskell, CommonLisp, FORTRAN, Java, C\texttt{\#}, HTML/CSS, TypeScript
+        \item[Languages] C, C\texttt{++}, C\texttt{\#}, Python, Java, HTML/CSS, TypeScript, Bash, Haskell, CommonLisp, FORTRAN
         \item[Frameworks\texttt{/}Libraries] POSIX, glibc, Angular, React, Express, Jasmine, pandas, Tkinter, NumPy, NLTK,
             Qt, .NET
         \item[Tools] Unix shells \texttt{(}zsh, sh, Bash\texttt{)}, GNU coreutils, Vim, Slurm, cron, PowerShell, Git, \LaTeX, Node.js,
@@ -133,12 +162,8 @@
         \raggedright
         \item[AirSkyBoat \href{https://github.com/luke-belinc/AirSkyBoat}{\fontsize{9pt}{9pt}\faLink}] Continuous contribution to 
             development of open source server emulator for Final Fantasy XI.
-        \item[Advent of Code \href{https://github.com/luke-belinc/AOC-2020}{\fontsize{9pt}{9pt}\faLink}] Various code challanges 
-            completed using Haskell, C\texttt{++}, and Python
         \item[DHack \href{https://github.com/kraudo/keepup}{\fontsize{9pt}{9pt}\faLink}] Designed health monitoring app using AWS 
             Lambda, JavaScript and React Native. Won 2nd place overall and 1st place for the FitBit challenge.
-        \item[MHacks 8] Designed set of dev tools for remote maintainance of GM Console software. Used C and Bash to leverage Wayland 
-            and manipulate system. Used JavaScript to interact with screen remotely.
         \item[Chinese Character Dictionary \href{https://github.com/luke-belinc/chinese-char-dict}{\fontsize{9pt}{9pt}\faLink}] 
             Designed a simple character meaning and stroke order dictionary and thesaurus using Python, PostgreSQL, and Qt
         \item[Mock Shell \href{https://github.com/luke-belinc/c-fun}{\fontsize{9pt}{9pt}\faLink}] Mock POSIX-like shell built in C. Implemented libraries such as \texttt{stdlib.h}, \texttt{signal.h}, 
@@ -157,7 +182,7 @@
 \end{minipage}\hspace*{30pt}%
 \begin{minipage}[t]{0.7\textwidth}%
     \vspace*{-14.5pt}\section*{References}
-    \vspace*{-6.5pt}\begin{tabular*}{\textwidth}{L{0.425\textwidth} L{0.5\textwidth}}
+    \vspace*{-10pt}\begin{tabular*}{\textwidth}{L{0.425\textwidth} L{0.5\textwidth}}
         \textbf{Matt Crawford} & \textbf{Matthew Heinrich} \\
         Director, Product Support & Engineer, DevOps \\
         \infolink{\faPhoneSquare}{tel:2485955635}{(248)595-5635}    & \infolink{\faPhoneSquare}{tel:6463855524}{(646)385-5524} \\
