@@ -1,18 +1,48 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage{fontspec}
+\setmainfont{MonoLisa-Light}[
+    Path           = fonts/MonoLisa/,
+    Extension      = .otf,
+    BoldFont       = MonoLisa-Bold,
+    ItalicFont     = MonoLisa-LightItalic,
+    BoldItalicFont = MonoLisa-BoldItalic,
+    Ligatures      = Common,
+    Numbers        = SlashedZero,
+    RawFeature     = {+calt,+zero,+ss02,+ss03},
+    LetterSpace    = -10
+]
+% had to do this because i have so many texttt things everywhere
 \setmonofont{MonoLisa-Light}[
     Path           = fonts/MonoLisa/,
     Extension      = .otf,
     BoldFont       = MonoLisa-Bold,
     ItalicFont     = MonoLisa-LightItalic,
     BoldItalicFont = MonoLisa-BoldItalic,
+    Ligatures      = Common,
     Numbers        = SlashedZero,
     RawFeature     = {+calt,+zero,+ss02,+ss03},
     LetterSpace    = -7.5
 ]
+\newfontface\mlscript{MonoLisa-BoldItalic}[
+    Path = fonts/MonoLisa/,
+    Extension = .otf,
+    RawFeature = +calt;-liga;+zero;+ss02,
+    LetterSpace = -12,
+    BoldItalicFont = MonoLisa-BoldItalic,
+    BoldFont = MonoLisa-BoldItalic,
+    ItalicFont = MonoLisa-BoldItalic
+]
+\newfontface\mltitle{MonoLisa-Bold}[
+    Path = fonts/MonoLisa/,
+    Extension = .otf,
+    RawFeature = +calt;-liga;+zero;+ss02,
+    LetterSpace = -12,
+    BoldItalicFont = MonoLisa-Bold,
+    BoldFont = MonoLisa-Bold,
+    ItalicFont = MonoLisa-Bold
+]
 
-\usepackage[light]{merriweather}
-\usepackage[left=.75cm, right=.75cm, top=.35cm, bottom=0cm]{geometry}
+\usepackage[left=.75cm, right=.55cm, top=.35cm, bottom=0cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
 \usepackage{tabularx, ragged2e, calc, booktabs, sectsty, anyfontsize, enumitem}
@@ -25,7 +55,7 @@
   {\end{itemize}}
 
 \pagenumbering{gobble}
-\sectionfont{\fontsize{17}{15}\bfseries}
+\sectionfont{\fontsize{17}{15}\mlscript}
 \parindent=0pt
 \title{Resume}
 \author{Luke Belinc}
@@ -38,14 +68,13 @@
 
 % generate work experience
 \newcommand\workexp[5]{
-    \hspace*{10pt}
-    \begin{minipage}[t]{0.225\textwidth}
+    \begin{minipage}[t]{0.215\textwidth}
             \raggedleft
-                \textbf{\fontsize{14}{10}\selectfont #1}\\ 
+                \textbf{\fontsize{13}{10}\selectfont #1}\\ 
                 #2\\
                 \small\texttt{#3}\textendash \texttt{#4}
     \end{minipage}\hspace*{5pt}%
-    \begin{minipage}[t]{0.7\textwidth}
+    \begin{minipage}[t]{0.75\textwidth}
         \raggedright
         \fontsize{10}{10}\selectfont#5
     \end{minipage}
@@ -63,12 +92,11 @@
 
 \begin{document}
 
-\begin{tabular}[t]{L{0.245\textwidth} | L{0.7\textwidth}}
-    \vspace*{-1pt}\fontsize{45}{35}\bfseries Luke Belinc & \vspace*{-4pt}\fontsize{12}{14}\normalfont As a Software Engineer and
-    Full Stack Web Developer, I am experienced in contributing to team success through the art of software development and dedication
-    to my craft. Rooted in a passion for learning, I have built a strong skill set which includes 5\texttt{+} years' experience
-    in applying Object-Oriented and Functional programming techniques.                                                           \\
-\end{tabular}
+\bgroup
+\begin{center}
+    \fontsize{45}{35}\mltitle Luke Belinc
+\end{center}
+\egroup
 
 \bgroup
 \begin{center}
@@ -76,74 +104,81 @@
         \infolink{\faPhoneSquare}{tel:7349695442}{(734)969-5442}                            &
         \infolink{\faLinkedinIn}{https://www.linkedin.com/in/luke-belinc/}{/in/luke-belinc} &
         \infolink{\faGithub*}{https://github.com/luke-belinc}{/luke-belinc}                 &
-        \infolink{\faAt}{mailto:luke@belinc.dev}{luke@belinc.dev}
+        \infolink{\faAt}{mailto:belinc@tuta.io}{belinc@tuta.io}
     \end{tabular}
 \end{center}
 \egroup
-\vspace*{-5pt}
 \hrule
-\vspace*{-15pt}
+\vspace*{-10pt}
 \section*{Experience}
-\vspace*{-15pt}\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{%
+\vspace*{-10pt}\workexp{Software\\ Engineer}{Bloomerang}{10/2022}{Current}{%
     \begin{itemize*}
-        \item Built and maintained internal software tools for the Experience Management Product Support organization
-        \item Automated workflows to create efficiency of scale while also reducing manual errors
-        \item Delivered continuous QoL updates to legacy software and systems
-        \item Built and deployed single page web applications via AWS EC2
-        \item Tasked with providing all necessary CLI training to colleagues
-        \item Coordinated multiple projects from initial planning through deployment
-        \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
-        \item Utilized Agile software development approach with each project
-        \item Doubled 2022 annual release target goal by August
+        \item Developing and maintaining internal software tools for customer facing teams
+        \item Designing and building toolsets to automate data collection, transformation, and analysis
+        \item Managing bottlenecks by creating new software tools to automate workflows
+        \item Coordinating multiple projects from initial planning through deployment
+        \item Shifting workflows to better fit customer needs and improve efficiency
     \end{itemize*}%
 }
 \vspace*{10pt}\\
-\workexp{Systems Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{%
+\workexp{Associate\\ Software\\ Engineer}{Verint Systems}{02/2022}{08/2022}{%
+\begin{itemize*}
+    \item Built and maintained internal software tools for the Experience Management Product Support organization
+    \item Automated workflows to create efficiency of scale while also reducing manual errors
+    \item Delivered continuous QoL updates to legacy software and systems
+    \item Built and deployed single page web applications via AWS EC2
+    \item Tasked with providing all necessary CLI training to colleagues
+    \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
+    \item Utilized Agile software development approach with each project
+    \item Doubled 2022 annual release target goal by August
+\end{itemize*}%
+}
+\vspace*{10pt}\\
+\workexp{Systems\\ Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{%
     \begin{itemize*}
-        \item Built software extensions for the GEOS-Chem and WRF-Chem modeling systems
+        \item Built and bedugged software extensions for the GEOS-Chem and WRF-Chem modeling systems
         \item Drew up comprehensive bug reports to identify pain points and provided solutions
         \item Authored scripts to interpret and generate maps from atmospheric data models
-        \item Automated software execution and data collection using Bash, cron, and Slurm via WSU's HPC nodes (A.K.A. Wayne State Grid)
-        \item Implemented GNU Make to automate software builds
+        \item Leveraged Bash, cron, and Slurm via WSU's HPC nodes (A.K.A. the Wayne State Grid) to automate and test software, 
+              data collection, and data modeling
+        \item Implemented GNU Make to build software and extensions
         \item Held regular CLI training sessions with research students
     \end{itemize*}%
 }
 
-\vspace*{-15pt}
+\vspace*{-10pt}
 \section*{Skill Set}
-\vspace*{-10pt}\hspace*{10pt}\begin{minipage}{0.935\textwidth}
+\vspace*{-8pt}\hspace*{10pt}\begin{minipage}{0.935\textwidth}
     \begin{description}
         \itemsep0em
         \raggedright
-        \item[Languages] C, C\texttt{++}, C\texttt{\#}, Java, Python, JavaScript, TypeScript, SQL, HTML, CSS, Go, Bash, Haskell,
-            CommonLisp, FORTRAN, Ruby 
-        \item[Frameworks\texttt{/}Libraries] Angular, React, Express, Jasmine, POSIX, pandas, Tkinter, NumPy, NLTK,
-            Qt, .NET, ASP.NET, jQuery, Rails
-        \item[Tools] Unix shells \texttt{(}zsh, sh, Bash\texttt{)}, GNU coreutils, Vim, Slurm, cron, PowerShell, Git, Node.js,
-            \LaTeX, AWS \texttt{(}S3, EC2, Lambda\texttt{)}, Database Managament Systems \texttt{(}PostgreSQL, MySQL, Oracle
-            Database\texttt{)}, Jira, Confluence
-        \item[Methodologies] Agile, CI/CD, Behavior- and Test-driven development
+        \item[Languages] C, C\texttt{++}, Python, Go, C\texttt{\#}, Java, HTML/CSS, TypeScript, Bash, Haskell, CommonLisp, FORTRAN
+        \item[Frameworks\texttt{/}Libraries] POSIX, glibc, Angular, React, Express, Jasmine, pandas, Tkinter, NumPy, NLTK,
+            Qt, .NET
+        \item[Tools] Unix shells \texttt{(}zsh, sh, Bash\texttt{)}, GNU coreutils, Vim, Slurm, cron, PowerShell, Git, \LaTeX, Node.js,
+            AWS \texttt{(}S3, EC2, Lambda\texttt{)}, Database Managament Systems \texttt{(}PostgreSQL, MySQL, SQLite\texttt{)}, Jira, Confluence, Notion
+        \item[Methodologies] Agile, CI\texttt{/}CD, Behavior- and Test-driven development
     \end{description}
 \end{minipage}
 
-\vspace*{-15pt}
+\vspace*{-10pt}
 \section*{Projects\texttt{/}Hackathons}
-\vspace*{-10pt}\hspace*{10pt}\begin{minipage}{0.93\textwidth}
+\vspace*{-8pt}\hspace*{10pt}\begin{minipage}{0.93\textwidth}
     \begin{description}
         \itemsep0em
         \raggedright
-        \item[Advent of Code] Various code challanges completed using Haskell, C\texttt{++}, and Python
-        \item[DHack] Designed health monitoring app using AWS Lambda, JavaScript and React Native. Won 2nd place overall and 1st
-            place for the FitBit challenge.
-        \item[MHacks 8] Designed set of dev tools for remote maintainance of GM Console software. Used C, JavaScript, and
-            Wayland to manipulate system and interact with screen remotely.
-        \item[Chinese Character Dictionary] Designed a simple character meaning and stroke order dictionary and thesaurus using
-            Python, PostgreSQL, and Qt
-        \item[Mock Terminal] POSIX shell built in C
+        \item[AirSkyBoat \href{https://github.com/luke-belinc/AirSkyBoat}{\fontsize{9pt}{9pt}\faLink}] Continuous contribution to 
+            development of open source server emulator for Final Fantasy XI.
+        \item[DHack \href{https://github.com/kraudo/keepup}{\fontsize{9pt}{9pt}\faLink}] Designed health monitoring app using AWS 
+            Lambda, JavaScript and React Native. Won 2nd place overall and 1st place for the FitBit challenge.
+        \item[Chinese Character Dictionary \href{https://github.com/luke-belinc/chinese-char-dict}{\fontsize{9pt}{9pt}\faLink}] 
+            Designed a simple character meaning and stroke order dictionary and thesaurus using Python, PostgreSQL, and Qt
+        \item[Mock Shell \href{https://github.com/luke-belinc/c-fun}{\fontsize{9pt}{9pt}\faLink}] Mock POSIX-like shell built in C. Implemented libraries such as \texttt{stdlib.h}, \texttt{signal.h}, 
+            and \texttt{unistd.h}.
     \end{description}
 \end{minipage}
 
-\vspace*{15pt}
+\vspace*{16pt}
 \begin{minipage}[t]{0.245\textwidth}
     \section*{Education}
     \vspace*{-10pt}\raggedright
@@ -154,12 +189,12 @@
 \end{minipage}\hspace*{30pt}%
 \begin{minipage}[t]{0.7\textwidth}%
     \vspace*{-14.5pt}\section*{References}
-    \vspace*{-6.5pt}\begin{tabular*}{\textwidth}{L{0.425\textwidth} L{0.5\textwidth}}
-        \textbf{Matt Crawford} & \textbf{Matthew Heinrich} \\
-        Director, Product Support & Engineer, DevOps \\
-        \infolink{\faPhoneSquare}{tel:2485955635}{(248)595-5635}    & \infolink{\faPhoneSquare}{tel:6463855524}{(646)385-5524} \\
-        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/th3mattcrawford/}{/in/th3mattcrawford} & 
-        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/matthew-heinrich-11b31216a/}{/in/matthew-heinrich-11b31216a}
+    \vspace*{-10pt}\begin{tabular*}{\textwidth}{L{0.5\textwidth} L{0.5\textwidth}}
+        \textbf{Michael Bowen} & \textbf{Matt Crawford} \\
+        Sr. Director, Getting Started & Director, Product Support \\
+        \infolink{\faPhoneSquare}{tel:2488952682}{(248)895-2682} & \infolink{\faPhoneSquare}{tel:2485955635}{(248)595-5635} \\
+        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/michael-bowen-it/}{/in/michael-bowen-it} &
+        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/th3mattcrawford/}{/in/th3mattcrawford}
     \end{tabular*}
 \end{minipage}
 
