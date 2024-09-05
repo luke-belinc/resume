@@ -32,6 +32,15 @@
     BoldFont = MonoLisa-BoldItalic,
     ItalicFont = MonoLisa-BoldItalic
 ]
+\newfontface\mltitle{MonoLisa-Bold}[
+    Path = fonts/MonoLisa/,
+    Extension = .otf,
+    RawFeature = +calt;-liga;+zero;+ss02,
+    LetterSpace = -12,
+    BoldItalicFont = MonoLisa-Bold,
+    BoldFont = MonoLisa-Bold,
+    ItalicFont = MonoLisa-Bold
+]
 
 \usepackage[left=.75cm, right=.55cm, top=.35cm, bottom=0cm]{geometry}
 \usepackage[hidelinks]{hyperref}
@@ -85,7 +94,7 @@
 
 \bgroup
 \begin{center}
-    \fontsize{45}{35}\mlscript Luke Belinc
+    \fontsize{45}{35}\mltitle Luke Belinc
 \end{center}
 \egroup
 
@@ -99,34 +108,33 @@
     \end{tabular}
 \end{center}
 \egroup
-\vspace*{-5pt}
 \hrule
-\vspace*{-15pt}
+\vspace*{-10pt}
 \section*{Experience}
-\vspace*{-10pt}\workexp{Software Engineer}{Bloomerang}{10/2022}{Current}{%
+\vspace*{-10pt}\workexp{Software\\ Engineer}{Bloomerang}{10/2022}{Current}{%
     \begin{itemize*}
-        \item Engineering internal solutions for client facing teams in the Professional Services organization
-        \item Automating workflows to resolve manual error and improve customer experience
-        \item Building .NET toolsets to generate reports and manage client data
-        \item Designing web applications to interface with customers for data collection and new customer onboarding
+        \item Developing and maintaining internal software tools for customer facing teams
+        \item Designing and building toolsets to automate data collection, transformation, and analysis
+        \item Managing bottlenecks by creating new software tools to automate workflows
+        \item Coordinating multiple projects from initial planning through deployment
+        \item Shifting workflows to better fit customer needs and improve efficiency
     \end{itemize*}%
 }
 \vspace*{10pt}\\
-\workexp{Associate Software Engineer}{Verint Systems}{02/2022}{08/2022}{%
+\workexp{Associate\\ Software\\ Engineer}{Verint Systems}{02/2022}{08/2022}{%
 \begin{itemize*}
     \item Built and maintained internal software tools for the Experience Management Product Support organization
     \item Automated workflows to create efficiency of scale while also reducing manual errors
     \item Delivered continuous QoL updates to legacy software and systems
     \item Built and deployed single page web applications via AWS EC2
     \item Tasked with providing all necessary CLI training to colleagues
-    \item Coordinated multiple projects from initial planning through deployment
     \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
     \item Utilized Agile software development approach with each project
     \item Doubled 2022 annual release target goal by August
 \end{itemize*}%
 }
 \vspace*{10pt}\\
-\workexp{Systems Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{%
+\workexp{Systems\\ Programmer}{WSU\textendash Huang Lab}{03/2020}{10/2020}{%
     \begin{itemize*}
         \item Built and bedugged software extensions for the GEOS-Chem and WRF-Chem modeling systems
         \item Drew up comprehensive bug reports to identify pain points and provided solutions
@@ -170,7 +178,7 @@
     \end{description}
 \end{minipage}
 
-\vspace*{15pt}
+\vspace*{16pt}
 \begin{minipage}[t]{0.245\textwidth}
     \section*{Education}
     \vspace*{-10pt}\raggedright
@@ -181,12 +189,12 @@
 \end{minipage}\hspace*{30pt}%
 \begin{minipage}[t]{0.7\textwidth}%
     \vspace*{-14.5pt}\section*{References}
-    \vspace*{-10pt}\begin{tabular*}{\textwidth}{L{0.425\textwidth} L{0.5\textwidth}}
-        \textbf{Matt Crawford} & \textbf{Matthew Heinrich} \\
-        Director, Product Support & Engineer, DevOps \\
-        \infolink{\faPhoneSquare}{tel:2485955635}{(248)595-5635}    & \infolink{\faPhoneSquare}{tel:6463855524}{(646)385-5524} \\
-        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/th3mattcrawford/}{/in/th3mattcrawford} & 
-        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/matthew-heinrich-11b31216a/}{/in/matthew-heinrich-11b31216a}
+    \vspace*{-10pt}\begin{tabular*}{\textwidth}{L{0.5\textwidth} L{0.5\textwidth}}
+        \textbf{Michael Bowen} & \textbf{Matt Crawford} \\
+        Sr. Director, Getting Started & Director, Product Support \\
+        \infolink{\faPhoneSquare}{tel:2488952682}{(248)895-2682} & \infolink{\faPhoneSquare}{tel:2485955635}{(248)595-5635} \\
+        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/michael-bowen-it/}{/in/michael-bowen-it} &
+        \infolink{\faLinkedinIn}{https://www.linkedin.com/in/th3mattcrawford/}{/in/th3mattcrawford}
     \end{tabular*}
 \end{minipage}
 
