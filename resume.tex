@@ -1,37 +1,37 @@
-\documentclass[10pt]{article}
+\documentclass[15pt]{article}
 \usepackage{fontspec}
-\setmainfont{MonoLisa-Light}[
-    Path           = fonts/MonoLisa/,
-    Extension      = .otf,
-    BoldFont       = MonoLisa-Bold,
-    ItalicFont     = MonoLisa-LightItalic,
-    BoldItalicFont = MonoLisa-BoldItalic,
-    Ligatures      = Common,
-    Numbers        = SlashedZero,
-    RawFeature     = {+calt,+zero,+ss02,+ss03},
-    LetterSpace    = -10
-]
+% \setmainfont{MonoLisa-Light}[
+%     Path           = fonts/MonoLisa/,
+%     Extension      = .otf,
+%     BoldFont       = MonoLisa-Bold,
+%     ItalicFont     = MonoLisa-LightItalic,
+%     BoldItalicFont = MonoLisa-BoldItalic,
+%     Ligatures      = Common,
+%     Numbers        = SlashedZero,
+%     RawFeature     = {+calt,+zero,+ss02,+ss03},
+%     LetterSpace    = -10
+% ]
 % had to do this because i have so many texttt things everywhere
-\setmonofont{MonoLisa-Light}[
-    Path           = fonts/MonoLisa/,
-    Extension      = .otf,
-    BoldFont       = MonoLisa-Bold,
-    ItalicFont     = MonoLisa-LightItalic,
-    BoldItalicFont = MonoLisa-BoldItalic,
-    Ligatures      = Common,
-    Numbers        = SlashedZero,
-    RawFeature     = {+calt,+zero,+ss02,+ss03},
-    LetterSpace    = -7.5
-]
-\newfontface\mlscript{MonoLisa-BoldItalic}[
-    Path = fonts/MonoLisa/,
-    Extension = .otf,
-    RawFeature = +calt;-liga;+zero;+ss02,
-    LetterSpace = -12,
-    BoldItalicFont = MonoLisa-BoldItalic,
-    BoldFont = MonoLisa-BoldItalic,
-    ItalicFont = MonoLisa-BoldItalic
-]
+% \setmonofont{MonoLisa-Light}[
+%     Path           = fonts/MonoLisa/,
+%     Extension      = .otf,
+%     BoldFont       = MonoLisa-Bold,
+%     ItalicFont     = MonoLisa-LightItalic,
+%     BoldItalicFont = MonoLisa-BoldItalic,
+%     Ligatures      = Common,
+%     Numbers        = SlashedZero,
+%     RawFeature     = {+calt,+zero,+ss02,+ss03},
+%     LetterSpace    = -7.5
+% ]
+% \newfontface\mlscript{MonoLisa-BoldItalic}[
+%     Path = fonts/MonoLisa/,
+%     Extension = .otf,
+%     RawFeature = +calt;-liga;+zero;+ss02,
+%     LetterSpace = -12,
+%     BoldItalicFont = MonoLisa-BoldItalic,
+%     BoldFont = MonoLisa-BoldItalic,
+%     ItalicFont = MonoLisa-BoldItalic
+% ]
 \newfontface\mltitle{MonoLisa-Bold}[
     Path = fonts/MonoLisa/,
     Extension = .otf,
@@ -55,7 +55,7 @@
   {\end{itemize}}
 
 \pagenumbering{gobble}
-\sectionfont{\fontsize{17}{15}\mlscript}
+\sectionfont{\fontsize{17}{15}}
 \parindent=0pt
 \title{Resume}
 \author{Luke Belinc}
@@ -68,15 +68,15 @@
 
 % generate work experience
 \newcommand\workexp[5]{
-    \begin{minipage}[t]{0.215\textwidth}
+    \begin{minipage}[t]{0.165\textwidth}
             \raggedleft
-                \textbf{\fontsize{13}{10}\selectfont #1}\\ 
+                \textbf{\fontsize{14}{12}\selectfont #1}\\ 
                 #2\\
                 \small\texttt{#3}\textendash \texttt{#4}
     \end{minipage}\hspace*{5pt}%
-    \begin{minipage}[t]{0.75\textwidth}
+    \begin{minipage}[t]{0.8\textwidth}
         \raggedright
-        \fontsize{10}{10}\selectfont#5
+        \fontsize{13}{13}\selectfont#5
     \end{minipage}
 }
 
@@ -87,14 +87,14 @@
     \settototalheight{\iconheight}{#1}%
     \settototalheight{\letterheight}{#2}%
     \setlength{\heightdif}{\letterheight-\iconheight}%
-    \fontsize{11pt}{10pt}\raisebox{-0.25\heightdif}{#1\hspace*{1pt}}\ttfamily\href{#2}{#3}%
+    \fontsize{13pt}{12pt}\raisebox{-0.25\heightdif}{#1\hspace*{1pt}}\ttfamily\href{#2}{#3}%
 }
 
 \begin{document}
 
 \bgroup
 \begin{center}
-    \fontsize{45}{35}\mltitle Luke Belinc
+    \fontsize{45}{45}\mltitle Luke Belinc
 \end{center}
 \egroup
 
@@ -111,13 +111,15 @@
 \hrule
 \vspace*{-10pt}
 \section*{Experience}
-\vspace*{-10pt}\workexp{Software\\ Engineer}{Bloomerang}{10/2022}{Current}{%
+\vspace*{-5pt}\workexp{Software\\ Engineer}{Bloomerang}{10/2022}{Current}{%
     \begin{itemize*}
-        \item Developing and maintaining internal software tools for customer facing teams
-        \item Designing and building toolsets to automate data collection, transformation, and analysis
-        \item Managing bottlenecks by creating new software tools to automate workflows
-        \item Coordinating multiple projects from initial planning through deployment
-        \item Shifting workflows to better fit customer needs and improve efficiency
+        \item Design and build Pepper, an ETL framework in Go for nonprofit CRM data conversions, featuring a custom DSL, 
+              deduplication engine, statistical reporting, and schema-driven transformation pipeline
+        \item Develop Bob, an automation utility that handles routine data conversions, reducing manual effort and error 
+              rates for the Conversion Engineering team
+        \item Execute customer data conversions directly, providing firsthand insight into team workflows and informing tooling improvements
+        \item Collaborate with Conversion Data Analysts and Project Managers to implement data transformation requirements
+        \item Received ``above and beyond'' in monthly performance reviews
     \end{itemize*}%
 }
 \vspace*{10pt}\\
@@ -125,12 +127,10 @@
 \begin{itemize*}
     \item Built and maintained internal software tools for the Experience Management Product Support organization
     \item Automated workflows to create efficiency of scale while also reducing manual errors
-    \item Delivered continuous QoL updates to legacy software and systems
     \item Built and deployed single page web applications via AWS EC2
     \item Tasked with providing all necessary CLI training to colleagues
-    \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
     \item Utilized Agile software development approach with each project
-    \item Doubled 2022 annual release target goal by August
+    \item Acted as admin for 20+ mission critical PowerBI waterfall reports and data gateways
 \end{itemize*}%
 }
 \vspace*{10pt}\\
@@ -139,20 +139,18 @@
         \item Built and bedugged software extensions for the GEOS-Chem and WRF-Chem modeling systems
         \item Drew up comprehensive bug reports to identify pain points and provided solutions
         \item Authored scripts to interpret and generate maps from atmospheric data models
-        \item Leveraged Bash, cron, and Slurm via WSU's HPC nodes (A.K.A. the Wayne State Grid) to automate and test software, 
-              data collection, and data modeling
+        \item Leveraged Bash, cron, and Slurm via WSU's HPC nodes to automate and test software, data collection, and data modeling
         \item Implemented GNU Make to build software and extensions
-        \item Held regular CLI training sessions with research students
     \end{itemize*}%
 }
 
 \vspace*{-10pt}
 \section*{Skill Set}
-\vspace*{-8pt}\hspace*{10pt}\begin{minipage}{0.935\textwidth}
+\vspace*{-5pt}\hspace*{10pt}\begin{minipage}{0.935\textwidth}
     \begin{description}
         \itemsep0em
         \raggedright
-        \item[Languages] C, C\texttt{++}, Python, Go, C\texttt{\#}, Java, HTML/CSS, TypeScript, Bash, Haskell, CommonLisp, FORTRAN
+        \item[Languages] C, C\texttt{++}, Python, Go, C\texttt{\#}, Java, HTML/CSS, Bash
         \item[Frameworks\texttt{/}Libraries] POSIX, glibc, Angular, React, Express, Jasmine, pandas, Tkinter, NumPy, NLTK,
             Qt, .NET
         \item[Tools] Unix shells \texttt{(}zsh, sh, Bash\texttt{)}, GNU coreutils, Vim, Slurm, cron, PowerShell, Git, \LaTeX, Node.js,
@@ -163,7 +161,7 @@
 
 \vspace*{-10pt}
 \section*{Projects\texttt{/}Hackathons}
-\vspace*{-8pt}\hspace*{10pt}\begin{minipage}{0.93\textwidth}
+\vspace*{-5pt}\hspace*{10pt}\begin{minipage}{0.93\textwidth}
     \begin{description}
         \itemsep0em
         \raggedright
@@ -178,10 +176,10 @@
     \end{description}
 \end{minipage}
 
-\vspace*{16pt}
+\vspace*{15pt}
 \begin{minipage}[t]{0.245\textwidth}
     \section*{Education}
-    \vspace*{-10pt}\raggedright
+    \vspace*{-5pt}\raggedright
     \hspace*{5pt}\textbf{Wayne State University}\\
     \hspace*{5pt}B.S. in Computer Science \\
     \hspace*{5pt}\textit{Detroit, MI}\hspace*{5pt} \\
@@ -189,7 +187,7 @@
 \end{minipage}\hspace*{30pt}%
 \begin{minipage}[t]{0.7\textwidth}%
     \vspace*{-14.5pt}\section*{References}
-    \vspace*{-10pt}\begin{tabular*}{\textwidth}{L{0.5\textwidth} L{0.5\textwidth}}
+    \vspace*{-5pt}\begin{tabular*}{\textwidth}{L{0.5\textwidth} L{0.5\textwidth}}
         \textbf{Michael Bowen} & \textbf{Matt Crawford} \\
         Sr. Director, Getting Started & Director, Product Support \\
         \infolink{\faPhoneSquare}{tel:2488952682}{(248)895-2682} & \infolink{\faPhoneSquare}{tel:2485955635}{(248)595-5635} \\
